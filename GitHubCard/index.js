@@ -2,6 +2,16 @@
            (replacing the palceholder with your Github name):
            https://api.github.com/users/<your name>
 */
+axios.get("https://api.github.com/users/ashleyalmay")
+  .then(
+    response => {
+      let g = response.data
+      userCard(g)
+      console.log(response)
+    })
+  .catch(error => {
+    console.log(error)
+  })
 
 /* Step 2: Inspect and study the data coming back, this is YOUR 
    github info! You will need to understand the structure of this 
@@ -24,27 +34,74 @@
           user, and adding that card to the DOM.
 */
 
-const followersArray = [];
+const followersArray = [tetondan, dustinmyers, justsml, luishrd, bigknell];
 
 /* Step 3: Create a function that accepts a single object as its only argument,
           Using DOM methods and properties, create a component that will return the following DOM element:
 
-<div class="card">
+<div class="card">.
   <img src={image url of user} />
-  <div class="card-info">
-    <h3 class="name">{users name}</h3>
-    <p class="username">{users user name}</p>
-    <p>Location: {users location}</p>
+  <div class="card-info">.
+    <h3 class="name">{users name}</h3>.
+    <p class="username">{users user name}</p>.
+    <p>Location: {users location}</p>.
     <p>Profile:  
-      <a href={address to users github page}>{address to users github page}</a>
-    </p>
-    <p>Followers: {users followers count}</p>
-    <p>Following: {users following count}</p>
+      <a href={address to users github page}>{address to users github page}</a>.
+    </p>.
+    <p>Followers: {users followers count}</p>.
+    <p>Following: {users following count}</p>.
     <p>Bio: {users bio}</p>
   </div>
 </div>
 
 */
+
+function userCard({
+  avatar_url,
+  name,
+  login,
+  location,
+  url,
+  followers,
+  following,
+  bio,
+  g
+}) {
+  //  elements
+  const card = document.createElement('div')
+  const image = document.createElement('img')
+  const cardInfo = document.createElement('div')
+  const names = document.createElement('h3')
+  const userName = document.createElement('p')
+  const locations = document.createElement('p')
+  const profile = document.createElement('p')
+  const address = document.createElement('href')
+  const followerz = document.createElement('p')
+  const followingz = document.createElement('p')
+  const bios = document.createElement('p')
+}
+//  order
+card.appendChild(image)
+card.appendChild(cardInfo)
+cardInfo.appendChild(name)
+cardInfo.appendChild(userName)
+cardInfo.appendChild(location)
+cardInfo.appendChild(profile)
+profile.appendChild(address)
+cardInfo.appendChild(followers)
+cardInfo.appendChild(following)
+cardInfo.appendChild(bio)
+
+//call names
+card.classList.add('avatar_url')
+
+
+
+
+
+
+
+
 
 /* List of LS Instructors Github username's: 
   tetondan
